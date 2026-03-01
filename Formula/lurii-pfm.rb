@@ -206,8 +206,8 @@ class LuriiPfm < Formula
   end
 
   resource "pypdfium2" do
-    url "https://files.pythonhosted.org/packages/source/p/pypdfium2/pypdfium2-5.5.0.tar.gz"
-    sha256 "3283c61f54c3c546d140da201ef48a51c18b0ad54293091a010029ac13ece23a"
+    url "https://files.pythonhosted.org/packages/bc/a9/379ec56c4481f39f0e37a7ce42f4844e6ddd7662571922e2b348105960ab/pypdfium2-5.5.0-py3-none-macosx_11_0_arm64.whl"
+    sha256 "0770bd3f0be5c68443fc4017e43b1b1fe8f36877481cab70fd29b68b2c362e1b"
   end
 
   resource "python-dotenv" do
