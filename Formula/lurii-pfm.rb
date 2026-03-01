@@ -307,6 +307,11 @@ class LuriiPfm < Formula
     venv.pip_install_and_link buildpath
   end
 
+  def post_install
+    quiet_system "launchctl", "stop", "finance.lurii.pfm"
+    quiet_system "launchctl", "start", "finance.lurii.pfm"
+  end
+
   test do
     assert_match "Usage", shell_output("#{bin}/pfm --help")
   end
