@@ -1,10 +1,10 @@
 class LuriiPfm < Formula
   include Language::Python::Virtualenv
 
-  desc "Personal finance aggregator — 9 sources, AI reports"
+  desc "Personal finance aggregator — 10 sources, AI reports"
   homepage "https://github.com/ChizhovYuI/lurii-pfm"
-  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.3.0/lurii_pfm-0.3.0.tar.gz"
-  sha256 "20d68654267aaf9be8bd0d9eb592127011ba0e1d7c09f45efb54e3178ba33651"
+  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.4.0/lurii_pfm-0.4.0.tar.gz"
+  sha256 "c4ad1f8e37f22c5f6a09f84a455717422d324b8536aad4cda775acdf0e1ae585"
   license "MIT"
 
   depends_on "python@3.13"
