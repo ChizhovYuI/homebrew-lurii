@@ -295,7 +295,7 @@ class LuriiPfm < Formula
     pypdfium2_cached = resource("pypdfium2").cached_download
     pypdfium2_whl = buildpath/"pypdfium2-5.5.0-py3-none-macosx_11_0_arm64.whl"
     cp pypdfium2_cached, pypdfium2_whl
-    system libexec/"bin/pip", "install", "--no-deps", pypdfium2_whl.to_s
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", pypdfium2_whl.to_s
 
     # Install all other resources from sdist (normal path)
     remaining = resources.reject { |r| r.name == "pypdfium2" }
