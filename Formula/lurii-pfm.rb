@@ -289,16 +289,10 @@ class LuriiPfm < Formula
     venv = virtualenv_create(libexec, "python3.13")
 
     # pypdfium2 bundles a platform binary — its sdist downloads from GitHub
-    # during build, which Homebrew blocks. Install the wheel directly.
-    pypdfium2 = resource("pypdfium2")
-    pypdfium2.stage do
-      whl = Pathname.glob("*.whl").first
-      if whl
-        system libexec/"bin/pip", "install", "--no-deps", whl.to_s
-      else
-        system libexec/"bin/pip", "install", "--no-deps", "--no-build-isolation", "."
-      end
-    end
+    # during build, which Homebrew blocks. Install the pre-fetched wheel
+    # directly from the download cache (skip stage, which would unzip it).
+    pypdfium2_whl = resource("pypdfium2").cached_download
+    system libexec/"bin/pip", "install", "--no-deps", pypdfium2_whl.to_s
 
     # Install all other resources from sdist (normal path)
     remaining = resources.reject { |r| r.name == "pypdfium2" }
