@@ -10,9 +10,15 @@ class LuriiPfm < Formula
   depends_on "python@3.13"
   depends_on "rust" => :build
   depends_on "pkgconf" => :build
+  depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "libffi"
   depends_on "libsodium"
+  depends_on "freetype"
+  depends_on "jpeg-turbo"
+  depends_on "libtiff"
+  depends_on "little-cms2"
+  depends_on "webp"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/source/a/aiohappyeyeballs/aiohappyeyeballs-2.6.1.tar.gz"
