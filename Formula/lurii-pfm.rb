@@ -205,11 +205,6 @@ class LuriiPfm < Formula
     sha256 "018494d6d696ae03c7e656e5e74cdfd8ea1326962cc401bcf018f1ed8436811c"
   end
 
-  resource "pypdfium2" do
-    url "https://files.pythonhosted.org/packages/bc/a9/379ec56c4481f39f0e37a7ce42f4844e6ddd7662571922e2b348105960ab/pypdfium2-5.5.0-py3-none-macosx_11_0_arm64.whl"
-    sha256 "0770bd3f0be5c68443fc4017e43b1b1fe8f36877481cab70fd29b68b2c362e1b"
-  end
-
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/source/p/python-dotenv/python_dotenv-1.2.1.tar.gz"
     sha256 "42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6"
@@ -286,7 +281,12 @@ class LuriiPfm < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # pypdfium2 bundles a platform binary and cannot be built from sdist
+    # without network access; install it from PyPI wheel first.
+    venv = virtualenv_create(libexec, "python3.13")
+    system libexec/"bin/pip", "install", "--no-deps", "pypdfium2==5.5.0"
+    venv.pip_install resources
+    venv.pip_install_and_link buildpath
   end
 
   test do
