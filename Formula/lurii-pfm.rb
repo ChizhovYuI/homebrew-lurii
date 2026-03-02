@@ -3,8 +3,8 @@ class LuriiPfm < Formula
 
   desc "Personal finance aggregator — 10 sources, AI reports"
   homepage "https://github.com/ChizhovYuI/lurii-pfm"
-  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.5.0/lurii_pfm-0.5.0.tar.gz"
-  sha256 "83caae585d9d8c733c49c93e52d6160135b2f6e3726d1032238fce25c8176cf7"
+  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.6.0/lurii_pfm-0.6.0.tar.gz"
+  sha256 "eb497c2ca6becf800a5b331eb7af311f65643ed44a82dea93d686b6250b4f5cf"
   license "MIT"
 
   depends_on "python@3.13"
@@ -89,6 +89,11 @@ class LuriiPfm < Formula
     sha256 "e6578ed5b6981005df1860a56e3617f14a6c307e6a71b4fff8c48fdc50f3ed2c"
   end
 
+  resource "jiter" do
+    url "https://files.pythonhosted.org/packages/67/83/2cd3ad5364191130f4de80eacc907f693723beaab11a46c7d155b07a092c/jiter-0.11.1-cp313-cp313-macosx_11_0_arm64.whl"
+    sha256 "0b3de72e925388453a5171be83379549300db01284f04d2a6f244d1d8de36f94"
+  end
+
   resource "yarl" do
     url "https://files.pythonhosted.org/packages/18/91/3274b215fd8442a03975ce6bee5fe6aa57a8326b29b9d3d56234a1dca244/yarl-1.22.0-cp313-cp313-macosx_11_0_arm64.whl"
     sha256 "22965c2af250d20c873cdbee8ff958fb809940aeb2e74ba5f20aaf6b7ac8c70c"
@@ -113,6 +118,11 @@ class LuriiPfm < Formula
   resource "alembic" do
     url "https://files.pythonhosted.org/packages/d2/29/6533c317b74f707ea28f8d633734dbda2119bbadfc61b2f3640ba835d0f7/alembic-1.18.4-py3-none-any.whl"
     sha256 "a5ed4adcf6d8a4cb575f3d759f071b03cd6e5c7618eb796cb52497be25bfe19a"
+  end
+
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl"
+    sha256 "571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"
   end
 
   resource "annotated-types" do
@@ -140,9 +150,19 @@ class LuriiPfm < Formula
     sha256 "981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6"
   end
 
+  resource "diskcache" do
+    url "https://files.pythonhosted.org/packages/3f/27/4570e78fc0bf5ea0ca45eb1de3818a23787af9b390c0b0a0033a1b8236f9/diskcache-5.6.3-py3-none-any.whl"
+    sha256 "5e31b2d5fbad117cc363ebaf6b689474db18a1f6438bc82358b024abd4c2ca19"
+  end
+
   resource "distro" do
     url "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl"
     sha256 "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2"
+  end
+
+  resource "docstring-parser" do
+    url "https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl"
+    sha256 "cf2569abd23dce8099b300f9b4fa8191e9582dda731fd533daf54c4551658708"
   end
 
   resource "google-auth" do
@@ -170,6 +190,11 @@ class LuriiPfm < Formula
     sha256 "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
   end
 
+  resource "instructor" do
+    url "https://files.pythonhosted.org/packages/45/04/e442e1356c97b03a6d30d2b462f7c0bdfbf207e75f6833815fd1225a75b4/instructor-1.14.5-py3-none-any.whl"
+    sha256 "2a5a31222b008c0989be1cc001e33a237f49506e80ac5833f6d36d7690bae7b1"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl"
     sha256 "771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea"
@@ -180,14 +205,29 @@ class LuriiPfm < Formula
     sha256 "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl"
+    sha256 "87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147"
+  end
+
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/87/fb/99f81ac72ae23375f22b7afdb7642aba97c00a713c217124420147681a2f/mako-1.3.10-py3-none-any.whl"
     sha256 "baef24a52fc4fc514a0887ac600f9f1cff3d82c61d4d700a1fa84d597b88db59"
   end
 
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl"
+    sha256 "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+  end
+
   resource "mnemonic" do
     url "https://files.pythonhosted.org/packages/57/48/5abb16ce7f9d97b728e6b97c704ceaa614362e0847651f379ed0511942a0/mnemonic-0.21-py3-none-any.whl"
     sha256 "72dc9de16ec5ef47287237b9b6943da11647a03fe7cf1f139fc3d7c4a7439288"
+  end
+
+  resource "openai" do
+    url "https://files.pythonhosted.org/packages/c9/30/844dc675ee6902579b8eef01ed23917cc9319a1c9c0c14ec6e39340c96d0/openai-2.24.0-py3-none-any.whl"
+    sha256 "fed30480d7d6c884303287bde864980a4b137b60553ffbcf9ab4a233b7a73d94"
   end
 
   resource "pdfminer-six" do
@@ -225,6 +265,11 @@ class LuriiPfm < Formula
     sha256 "d56fd801823dbeae7f0975e1f8c8e25c258eb75d278ea7abb5d9cebb01b56237"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/c7/21/705964c7812476f378728bdf590ca4b771ec72385c533964653c68e86bdc/pygments-2.19.2-py3-none-any.whl"
+    sha256 "86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b"
+  end
+
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/14/1b/a298b06749107c305e1fe0f814c6c74aea7b2f1e10989cb30f544a1b3253/python_dotenv-1.2.1-py3-none-any.whl"
     sha256 "b81ee9561e9ca4004139c6cbba3a238c32b03e4894671e181b671e8cb8425d61"
@@ -240,6 +285,11 @@ class LuriiPfm < Formula
     sha256 "ebd9da245c2bb02bc070617e16b37a260a7386abf6cd9b2a250a6529a92c74cf"
   end
 
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/14/25/b208c5683343959b670dc001595f2f3737e051da617f66c31f7c4fa93abc/rich-14.3.3-py3-none-any.whl"
+    sha256 "793431c1f8619afa7d3b52b2cdec859562b950ea0d4b6b505397612db8d5362d"
+  end
+
   resource "rsa" do
     url "https://files.pythonhosted.org/packages/64/8d/0133e4eb4beed9e425d9a98ed6e081a55d195481b7632472be1af08d2f6b/rsa-4.9.1-py3-none-any.whl"
     sha256 "68635866661c6836b8d39430f97a996acbd61bfa49406748ea243539fe239762"
@@ -250,6 +300,11 @@ class LuriiPfm < Formula
     sha256 "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
   end
 
+  resource "shellingham" do
+    url "https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl"
+    sha256 "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+  end
+
   resource "stellar-sdk" do
     url "https://files.pythonhosted.org/packages/a4/ff/f9409220ef749c39f8413b4fb1711894ccad336dbd6909eba972066ea506/stellar_sdk-13.2.1-py3-none-any.whl"
     sha256 "66936d463a0e6467d64370f8fa3b2bcc2bebcc17ba6d5000d647d7c35caa4660"
@@ -258,6 +313,16 @@ class LuriiPfm < Formula
   resource "tenacity" do
     url "https://files.pythonhosted.org/packages/d7/c1/eb8f9debc45d3b7918a32ab756658a0904732f75e555402972246b0b8e71/tenacity-9.1.4-py3-none-any.whl"
     sha256 "6095a360c919085f28c6527de529e76a06ad89b23659fa881ae0649b867a9d55"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/16/e1/3079a9ff9b8e11b846c6ac5c8b5bfb7ff225eee721825310c91b3b50304f/tqdm-4.67.3-py3-none-any.whl"
+    sha256 "ee1e4c0e59148062281c49d80b25b67771a127c85fc9676d3be5f243206826bf"
+  end
+
+  resource "typer" do
+    url "https://files.pythonhosted.org/packages/4a/91/48db081e7a63bb37284f9fbcefda7c44c277b18b0e13fbc36ea2335b71e6/typer-0.24.1-py3-none-any.whl"
+    sha256 "112c1f0ce578bfb4cab9ffdabc68f031416ebcc216536611ba21f04e9aa84c9e"
   end
 
   resource "typing-extensions" do
