@@ -363,8 +363,12 @@ class LuriiPfm < Formula
   end
 
   def post_install
-    quiet_system "launchctl", "stop", "finance.lurii.pfm"
-    quiet_system "launchctl", "start", "finance.lurii.pfm"
+    plist = Pathname.new(Dir.home)/"Library/LaunchAgents/finance.lurii.pfm.plist"
+    return unless plist.exist?
+
+    uid = Process.uid.to_s
+    quiet_system "launchctl", "bootout", "gui/#{uid}/finance.lurii.pfm"
+    quiet_system "launchctl", "bootstrap", "gui/#{uid}", plist.to_s
   end
 
   test do
