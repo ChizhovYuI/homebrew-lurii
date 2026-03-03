@@ -14,6 +14,6 @@ cask "lurii-finance" do
 
   postflight do
     system_command "#{HOMEBREW_PREFIX}/bin/pfm", args: ["daemon", "stop"]
-    system_command HOMEBREW_BREW_FILE, args: ["upgrade", "ChizhovYuI/lurii/lurii-pfm"]
+    system_command HOMEBREW_BREW_FILE.to_s, args: ["upgrade", "ChizhovYuI/lurii/lurii-pfm"]
   end
 end
