@@ -385,12 +385,8 @@ class LuriiPfm < Formula
       tmpdir.rmtree
     end
 
-    plist = Pathname.new(Dir.home)/"Library/LaunchAgents/finance.lurii.pfm.plist"
-    return unless plist.exist?
-
-    uid = Process.uid.to_s
-    quiet_system "launchctl", "bootout", "gui/#{uid}/finance.lurii.pfm"
-    quiet_system "launchctl", "bootstrap", "gui/#{uid}", plist.to_s
+    # Daemon restart is handled by POST /api/v1/updates/restart —
+    # restarting here would kill the running process mid-upgrade task.
   end
 
   test do
