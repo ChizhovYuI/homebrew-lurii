@@ -1,6 +1,6 @@
 cask "lurii-finance" do
-  version "2.5"
-  sha256 "40e42ca7bc931e3eea6a095c06c3b86419fe167b34ad736dc336065da3d7e0e7"
+  version "2.6"
+  sha256 "3ae94fd8dc622865aea7f1db08ee97a778e53eba6de74c62e52506a615a86f7a"
 
   url "https://github.com/ChizhovYuI/lurii-finance/releases/download/v#{version}/LuriiFinance-#{version}.zip"
   name "Lurii Finance"
