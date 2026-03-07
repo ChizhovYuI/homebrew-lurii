@@ -3,8 +3,8 @@ class LuriiPfm < Formula
 
   desc "Personal finance aggregator — 14 sources, AI reports"
   homepage "https://github.com/ChizhovYuI/lurii-pfm"
-  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.11.0/lurii_pfm-0.11.0.tar.gz"
-  sha256 "bee0022fffc6451e51748bd1718f5f3ee54d89011a17548126be2623c928a025"
+  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.15.0/lurii_pfm-0.15.0.tar.gz"
+  sha256 "82123db60b7bcad0e168e9e7f779cf7779985867ee242f0bee4bc475cba9b8f1"
   license "MIT"
 
   depends_on "python@3.13"
@@ -351,7 +351,14 @@ class LuriiPfm < Formula
     # All resources are wheels — install with --no-deps to avoid pip
     # pulling anything from PyPI. Homebrew prefixes cached files with a
     # hash, breaking pip's filename validation, so copy each wheel first.
+    #
+    # Rust-built wheels (cryptography, jiter, pydantic-core) are deferred
+    # to post_install — their .so files lack header padding for
+    # Homebrew's install_name_tool relocation.
+    rust_wheels = %w[cryptography jiter pydantic-core]
     resources.each do |res|
+      next if rust_wheels.include?(res.name)
+
       cached = res.cached_download
       original_name = res.url.split("/").last
       whl = buildpath/original_name
@@ -363,6 +370,21 @@ class LuriiPfm < Formula
   end
 
   def post_install
+    # Install Rust-built wheels after Homebrew's Mach-O relocation step.
+    # Their .so files lack header padding for install_name_tool.
+    tmpdir = Pathname.new(Dir.mktmpdir)
+    begin
+      %w[cryptography jiter pydantic-core].each do |name|
+        res = resource(name)
+        original_name = res.url.split("/").last
+        whl = tmpdir/original_name
+        cp res.cached_download, whl
+        system libexec/"bin/python", "-m", "pip", "install", "--no-deps", whl.to_s
+      end
+    ensure
+      tmpdir.rmtree
+    end
+
     plist = Pathname.new(Dir.home)/"Library/LaunchAgents/finance.lurii.pfm.plist"
     return unless plist.exist?
 
