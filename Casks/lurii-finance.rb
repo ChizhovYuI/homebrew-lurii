@@ -11,9 +11,4 @@ cask "lurii-finance" do
   depends_on macos: ">= :sequoia"
 
   app "Lurii Finance.app"
-
-  postflight do
-    system_command "#{HOMEBREW_PREFIX}/bin/pfm", args: ["daemon", "stop"]
-    system_command HOMEBREW_BREW_FILE.to_s, args: ["upgrade", "ChizhovYuI/lurii/lurii-pfm"]
-  end
 end

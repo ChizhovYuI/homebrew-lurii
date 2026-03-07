@@ -385,8 +385,9 @@ class LuriiPfm < Formula
       tmpdir.rmtree
     end
 
-    # Daemon restart is handled by POST /api/v1/updates/restart —
-    # restarting here would kill the running process mid-upgrade task.
+    # Daemon restart is handled only by POST /api/v1/updates/restart.
+    # The app cask also avoids service orchestration so in-app updates can
+    # complete and then surface an explicit "Restart" action to the user.
   end
 
   test do
