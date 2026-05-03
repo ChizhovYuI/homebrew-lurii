@@ -3,8 +3,8 @@ class LuriiPfm < Formula
 
   desc "Personal finance aggregator — 14 sources, AI reports"
   homepage "https://github.com/ChizhovYuI/lurii-pfm"
-  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.22.9/lurii_pfm-0.22.9.tar.gz"
-  sha256 "97cbb040f9e06b59b0753a412c2d7aceff4e89e489d33a4db4f98724a9332bcd"
+  url "https://github.com/ChizhovYuI/lurii-pfm/releases/download/v0.22.10/lurii_pfm-0.22.10.tar.gz"
+  sha256 "74890ee45640bd2bae317ba9a95623cd88d4be4d75c23c0629879d2c2eee1b5f"
   license "MIT"
 
   depends_on "python@3.13"
