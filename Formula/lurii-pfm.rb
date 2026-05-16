@@ -296,10 +296,10 @@ class LuriiPfm < Formula
     # pulling anything from PyPI. Homebrew prefixes cached files with a
     # hash, breaking pip's filename validation, so copy each wheel first.
     #
-    # Rust-built wheels (cryptography, jiter, pydantic-core) are deferred
+    # Rust-built wheels (cryptography, pydantic-core) are deferred
     # to post_install — their .so files lack header padding for
     # Homebrew's install_name_tool relocation.
-    rust_wheels = %w[cryptography jiter pydantic-core]
+    rust_wheels = %w[cryptography pydantic-core]
     resources.each do |res|
       next if rust_wheels.include?(res.name)
 
@@ -318,7 +318,7 @@ class LuriiPfm < Formula
     # Their .so files lack header padding for install_name_tool.
     tmpdir = Pathname.new(Dir.mktmpdir)
     begin
-      %w[cryptography jiter pydantic-core].each do |name|
+      %w[cryptography pydantic-core].each do |name|
         res = resource(name)
         original_name = res.url.split("/").last
         whl = tmpdir/original_name
